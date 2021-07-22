@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-underscore-dangle */
-
 import React from 'react';
 
 declare global {
@@ -14,7 +13,6 @@ declare global {
 export const useTheme = () => {
   const [theme, setTheme] = React.useState('dark');
   const [isLoading, setIsLoading] = React.useState(true);
-
   const toggleTheme = () => {
     localStorage.setItem('theme', theme === 'light' ? 'dark' : 'light');
     setTheme(theme === 'light' ? 'dark' : 'light');

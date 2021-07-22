@@ -11,12 +11,13 @@ export enum ThemeColorEnums {
   GENERAL = 'GENERAL',
   WHITE = 'WHITE',
   BLACK = 'BLACK',
+  PAGE_BG = 'PAGE_BG',
+  TEXT = 'TEXT',
 }
 
 type ThemeType = { readonly [T in ThemeColorEnums]: ThemeTones };
 
 declare module 'styled-components' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
   export interface DefaultTheme extends ThemeType {
     isDark: boolean;
     toggleTheme?: () => void;

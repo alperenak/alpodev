@@ -2,14 +2,18 @@ import { DefaultTheme } from 'styled-components';
 
 export const lightTheme: DefaultTheme = {
   GENERAL: { BASE: '#042B37' },
+  PAGE_BG: { BASE: '#F9F9F9' },
   WHITE: { BASE: '#FFFFFF' },
   BLACK: { BASE: '#000000' },
+  TEXT: { BASE: '#293651', LOWLIGHT: '#E8E8E8', HIGHLIGHT: '#FFFFFF' },
   isDark: false,
 } as const;
 
 export const darkTheme: DefaultTheme = {
   GENERAL: { BASE: '#2F80ED' },
+  PAGE_BG: { BASE: '#585858' },
   WHITE: { BASE: '#FFFFFF' },
+  TEXT: { BASE: '#F5F5F5', LOWLIGHT: '#E8E8E8', HIGHLIGHT: '#FFFFFF' },
   BLACK: { BASE: '#000000' },
   isDark: true,
 } as const;
