@@ -22,7 +22,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "icons": "svgr src/assets/icons --out-dir src/components/Icon/icons --icon --typescript"
   },
   "eslintConfig": {
     "extends": [
@@ -31,6 +32,7 @@
     ]
   },
   "devDependencies": {
+    "@svgr/cli": "^5.5.0",
     "@types/styled-components": "^5.1.9",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-typescript": "^12.3.1",

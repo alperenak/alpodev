@@ -1,5 +1,6 @@
 import * as FaIcon from 'react-icons/fa';
 import * as BiIcon from 'react-icons/bi';
+import * as Icon from './icons';
 
 export const allIcons = {
   facebook: FaIcon.FaFacebookF,
@@ -8,6 +9,7 @@ export const allIcons = {
   linkedin: FaIcon.FaLinkedinIn,
   sun: BiIcon.BiSun,
   moon: BiIcon.BiMoon,
+  hello: Icon.Hello,
 };
 
 export default { ...allIcons };

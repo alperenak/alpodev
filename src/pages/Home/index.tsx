@@ -11,7 +11,6 @@ const StyledHome = styled.div`
   background-color: ${({ theme }) => theme.PAGE_BG.BASE};
   display: flex;
   height: 100vh;
-  width: 100vw;
   position: relative;
   overflow: hidden;
   ${transitionBackground()}
