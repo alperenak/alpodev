@@ -9,7 +9,7 @@ export const allIcons = {
   linkedin: FaIcon.FaLinkedinIn,
   sun: BiIcon.BiSun,
   moon: BiIcon.BiMoon,
-  hello: Icon.Hello,
+  scroll: Icon.Scroll,
 };
 
 export default { ...allIcons };

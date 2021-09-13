@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledHeader = styled.div`
-  position: absolute;
+  position: fixed;
   display: flex;
   left: 55px;
   height: 55px;
