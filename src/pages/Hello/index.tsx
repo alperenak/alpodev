@@ -28,11 +28,12 @@ const textAnimate = keyframes`
     }
 `;
 
-const StyledHelloScreen = styled.div`
+const StyledHelloScreen = styled.div<{ isFixed: boolean }>`
   width: 100%;
-  height: 100%;
+  height: calc(100% - 110px);
   display: flex;
-  position: relative;
+  top: 55px;
+  position: fixed;
   align-items: center;
   justify-content: center;
   flex: 1;
@@ -45,10 +46,10 @@ const StyledRightSection = styled.div<{ isScroll: boolean }>`
   transition: 1000ms cubic-bezier(0.7, 0, 0.3, 1) 50ms;
   background: ${({ theme }) => theme.PAGE_BG.BASE};
 `;
-const StyledLeftSection = styled.div<{ isScroll: boolean }>`
+
+const StyledLeftSection = styled.div`
   flex: 1;
   height: 100%;
-  width: ${({ isScroll }) => (isScroll ? '100%' : '50%')};
   background: ${({ theme }) => theme.GENERAL.BASE};
   display: flex;
   align-items: center;
@@ -65,7 +66,6 @@ const StyledHelloScreenContent = styled.div<{ isScroll: boolean }>`
   align-items: center;
   transition: 1000ms cubic-bezier(0.7, 0, 0.3, 1) 50ms;
   right: calc(50% - 400px);
-  transform: translate(-50%, -50%);
   right: ${({ isScroll }) => isScroll && '-400px'};
 
   .text1 {
@@ -142,6 +142,12 @@ const StyledIconWrapper = styled.div`
   animation: ${scrollDown} 1.2s infinite ease;
   margin-top: 20px;
 `;
+
+const StyledHelloScreenWrapper = styled.div`
+  height: 5000px;
+  width: 100%;
+`;
+
 export const HelloScreen: React.FC = () => {
   const theme = useTheme();
 
@@ -154,29 +160,31 @@ export const HelloScreen: React.FC = () => {
   }, []);
 
   return (
-    <StyledHelloScreen style={{ transform: `translateY(${offsetY}px)` }}>
-      <StyledLeftSection isScroll={offsetY > 0}>
-        <StyledScrollDown>
-          <StyledScrollDownText>Scroll</StyledScrollDownText>
-          <StyledIconWrapper>
-            <StyledIcon name="scroll" size={14} />
-          </StyledIconWrapper>
-        </StyledScrollDown>
-      </StyledLeftSection>
-      <StyledRightSection isScroll={offsetY > 0} />
-      <StyledHelloScreenContent style={{ transform: `translateY(${50}px)` }} isScroll={offsetY > 0}>
-        <svg viewBox="0 0 512 512">
-          <text className="text1" x="50%" y="30%" dy=".35em" textAnchor="middle">
-            HE
-          </text>
-          <text className="text1" x="57.3%" y="55%" dy=".35em" textAnchor="middle">
-            LLO
-          </text>
-          <circle cx="84%" cy="62%" r="0" fill={theme.GENERAL.BASE}>
-            <animate attributeName="r" begin="2s" dur="0.5s" from="0%" to="17" fill="freeze" />
-          </circle>
-        </svg>
-      </StyledHelloScreenContent>
-    </StyledHelloScreen>
+    <StyledHelloScreenWrapper>
+      <StyledHelloScreen isFixed={offsetY < 100}>
+        <StyledLeftSection>
+          <StyledScrollDown>
+            <StyledScrollDownText>Scroll</StyledScrollDownText>
+            <StyledIconWrapper>
+              <StyledIcon name="scroll" size={14} />
+            </StyledIconWrapper>
+          </StyledScrollDown>
+        </StyledLeftSection>
+        <StyledRightSection isScroll={offsetY > 0} />
+        <StyledHelloScreenContent isScroll={offsetY > 0}>
+          <svg viewBox="0 0 512 512">
+            <text className="text1" x="50%" y="30%" dy=".35em" textAnchor="middle">
+              HE
+            </text>
+            <text className="text1" x="57.3%" y="55%" dy=".35em" textAnchor="middle">
+              LLO
+            </text>
+            <circle cx="84%" cy="62%" r="0" fill={theme.GENERAL.BASE}>
+              <animate attributeName="r" begin="2s" dur="0.5s" from="0%" to="17" fill="freeze" />
+            </circle>
+          </svg>
+        </StyledHelloScreenContent>
+      </StyledHelloScreen>
+    </StyledHelloScreenWrapper>
   );
 };

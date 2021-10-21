@@ -5,7 +5,7 @@ import { Sidebar } from '../components/Sidebar';
 import { HelloScreen } from '../pages/Hello';
 
 const StyledAppLayout = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   padding: 55px 55px 55px 55px;
 `;
@@ -15,7 +15,7 @@ const StyledAppLayoutWrapper = styled.div``;
 const StyledBlank = styled.div`
   width: 100%;
   height: 100vh;
-  z-index: -1;
+  visibility: hidden;
 `;
 export const AppLayout: React.FC = () => {
   return (
@@ -24,6 +24,10 @@ export const AppLayout: React.FC = () => {
       <Sidebar />
       <StyledAppLayout>
         <HelloScreen />
+        <StyledBlank />
+        <StyledBlank />
+        <StyledBlank />
+        <StyledBlank />
         <StyledBlank />
       </StyledAppLayout>
     </StyledAppLayoutWrapper>

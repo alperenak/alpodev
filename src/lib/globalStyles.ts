@@ -10,10 +10,11 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${FONTS.BODY};
   }
 
-  body {
+  html, body, #root {
     font-family: 'Open Sans', sans-serif;
     color: ${({ theme }) => theme.GENERAL.BASE};
     ${transitionBackground()};
+    width: 100%;
   }
 
 `;
